@@ -25,7 +25,7 @@ export class TaskController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a task by ID' })
-  @ApiParam({ name: 'id', type: 'string', description: 'Task ID' })
+  @ApiParam({ name: 'id', type: 'uuid', description: 'Task ID' })
   @ApiResponse({ status: HttpStatus.OK, description: 'Task found.' })
   @ApiResponse({ status: HttpStatus.NOT_FOUND, description: 'Task not found.' })
   findOne(@Param() { id }: ParamsDto) {
@@ -45,7 +45,7 @@ export class TaskController {
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update a task by ID' })
-  @ApiParam({ name: 'id', type: 'string', description: 'Task ID' })
+  @ApiParam({ name: 'id', type: 'uuid', description: 'Task ID' })
   @ApiBody({ type: UpdateTaskDto })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -58,7 +58,7 @@ export class TaskController {
 
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a task by ID' })
-  @ApiParam({ name: 'id', type: 'string', description: 'Task ID' })
+  @ApiParam({ name: 'id', type: 'uuid', description: 'Task ID' })
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'Task successfully deleted.',
