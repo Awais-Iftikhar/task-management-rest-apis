@@ -12,6 +12,7 @@ import { TaskService } from './task.service';
 import { CreateTaskDto, ParamsDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
+import { API_PARAM } from './constants/task-api.constants';
 
 @Controller('tasks')
 export class TaskController {
@@ -25,7 +26,7 @@ export class TaskController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a task by ID' })
-  @ApiParam({ name: 'id', type: 'uuid', description: 'Task ID' })
+  @ApiParam(API_PARAM)
   @ApiResponse({ status: HttpStatus.OK, description: 'Task found.' })
   @ApiResponse({ status: HttpStatus.NOT_FOUND, description: 'Task not found.' })
   findOne(@Param() { id }: ParamsDto) {
@@ -45,7 +46,7 @@ export class TaskController {
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update a task by ID' })
-  @ApiParam({ name: 'id', type: 'uuid', description: 'Task ID' })
+  @ApiParam(API_PARAM)
   @ApiBody({ type: UpdateTaskDto })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -58,7 +59,7 @@ export class TaskController {
 
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a task by ID' })
-  @ApiParam({ name: 'id', type: 'uuid', description: 'Task ID' })
+  @ApiParam(API_PARAM)
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'Task successfully deleted.',

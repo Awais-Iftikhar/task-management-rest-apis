@@ -19,3 +19,11 @@ export const TASK_API_DESCRIPTIONS = {
     example: 'pending',
   },
 } as const;
+
+export const API_PARAM = {
+  name: 'id',
+  type: 'string',
+  format: 'uuid',
+  description: 'Task ID',
+  example: '9c31b180-dbc5-49ae-b6bf-968959a8eaff',
+} as const;
