@@ -21,7 +21,6 @@ async function bootstrap() {
       'A simple Task Management REST API built with NestJS and Prisma',
     )
     .setVersion('1.0')
-    .addTag('tasks', 'Task management operations')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);
