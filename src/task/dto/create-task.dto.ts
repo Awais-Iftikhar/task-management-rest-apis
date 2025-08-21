@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsUUID, IsNotEmpty } from 'class-validator';
+import { IsString, IsUUID, IsNotEmpty, IsEnum } from 'class-validator';
 import {
   TASK_API_DESCRIPTIONS,
   TASK_STATUS_VALUES,
@@ -19,6 +19,7 @@ export class CreateTaskDto {
   @ApiProperty(TASK_API_DESCRIPTIONS.STATUS)
   @IsString()
   @IsNotEmpty()
+  @IsEnum(TASK_STATUS_VALUES)
   status: TASK_STATUS_VALUES;
 }
 

@@ -18,7 +18,7 @@ export class TaskController {
   constructor(private readonly taskService: TaskService) {}
   @Get()
   @ApiOperation({ summary: 'Get all tasks' })
-  @ApiResponse({ status: 200, description: 'List of all tasks.' })
+  @ApiResponse({ status: HttpStatus.OK, description: 'List of all tasks.' })
   findAll() {
     return this.taskService.findAll();
   }
